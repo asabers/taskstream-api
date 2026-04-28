@@ -37,7 +37,7 @@ def create_task(task: schemas.TaskCreate, db: Session = Depends(get_db)):
 def read_tasks(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return service.get_tasks(db, skip=skip, limit=limit)
 
-@app.put("/tasks/{task_id}/status", response_model=schemas.Task)
+@app.put("/tasks/{task_id}/status")
 def update_status(task_id: int, db: Session = Depends(get_db)):
     return service.update_task_status(db, task_id)
 
